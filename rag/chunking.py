@@ -16,8 +16,8 @@ def chunk_documents (documents):
         chunks = chunk_text(doc.content)
         for i, chunk in enumerate(chunks):
             all_chunks.append({
-                "content":chunk, #content: "Text ......."
-                "metadata": doc.metadata #Metadata: {id: 3}
+                "content":chunk, 
+                "metadata": doc.metadata 
                 })
     return all_chunks
         

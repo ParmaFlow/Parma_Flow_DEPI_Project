@@ -1,6 +1,6 @@
 # app/main.py
 import os
-from pathlib import Path  # مكتبة للتعامل مع مسارات الملفات بذكاء
+from pathlib import Path  
 from dotenv import load_dotenv
 from services.ingestion_service import IngestionService
 from services.query_service import QueryService
@@ -45,8 +45,7 @@ if __name__ == "__main__":
         "confidence_high": 95   
     }
 
-    # حالة رقم 2: بيانات متخبطة جداً (هنشوف الـ Human Review)
-    # هنا الفجوة 90% (95 - 5) والطلب 100، يعني الـ Gap أكبر من 30% بكتير
+
     case_2 = {
         "sku": "ASP-100",
         "sku_name": "Aspirin",
@@ -56,11 +55,10 @@ if __name__ == "__main__":
         "forecast_demand": 100,
         "expiry_days": 100,
         "available_stock": 10,
-        "confidence_low": 1,    # يقين 1%
-        "confidence_high": 99   # يقين 99% (فجوة 98 وحدة!)
+        "confidence_low": 1,   
+        "confidence_high": 99   
     }
 
-    # --- التشغيل الفعلي ---
 
     print("\n🔥 RUNNING SCENARIO 1: Clinical Shortage (RAG Enabled)")
     service.execute_agent_decision(case_1)

@@ -12,7 +12,6 @@ class LLMModel:
 
     def get_decision(self, system_prompt, user_data):
         response = self.client.chat.completions.create(
-            # غيرنا اسم الموديل لنسخة شغالة حالياً
             model="llama-3.1-8b-instant", 
             messages=[
                 {"role": "system", "content": system_prompt},
