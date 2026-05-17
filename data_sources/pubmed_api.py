@@ -20,7 +20,6 @@ class PubMedAPI:
 
         record= Entrez.read(handle)
         return record["IdList"]
-    #['123','456','789'] >> "123,456,789"
 
     
     def fetch_details(self, id_list):

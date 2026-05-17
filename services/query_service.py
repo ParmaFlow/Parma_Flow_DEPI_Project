@@ -7,10 +7,8 @@ class QueryService:
         self.agent = PharmaAgent(api_key)
 
     def execute_agent_decision(self, item_data):
-        # 1. الحصول على القرار الذكي من الأجنت
         decision = self.agent.process_inventory_item(item_data)
         
-        # 2. استخراج الأكشن والبيانات
         action = decision.get("action", "MONITOR").upper()
         sku_name = item_data.get("sku_name", "Unknown SKU")
         qty = decision.get("recommended_qty", 0)
@@ -21,20 +19,15 @@ class QueryService:
         print(f"Reason: {decision.get('reasoning', 'No reason provided')}")
         print("="*50)
 
-        # 3. تنفيذ "Real Action" (Trigger)
         self._trigger_action(action, sku_name, qty, decision)
         
         return decision
 
     def _trigger_action(self, action, sku_name, qty, decision):
-       """
-       هذه الدالة تحاكي الاتصال بأنظمة خارجية (ERP, Email, Logistics) 
-       مع إضافة منطق التعامل مع حالات عدم اليقين (Confidence Intervals).
-       """
+
        import datetime
        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
-       # تحويل الأكشن لـ Upper Case لضمان المطابقة
        action = action.upper()
     
        if action == "REORDER":

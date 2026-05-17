@@ -3,7 +3,6 @@ from openai import OpenAI
 
 class LLMModel:
     def __init__(self, api_key):
-        # هنا بنوجه المكتبة إنها تكلم سيرفرات Groq بدل OpenAI
         self.client = OpenAI(
             base_url="https://api.groq.com/openai/v1",
             api_key=api_key
