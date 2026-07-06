@@ -1,0 +1,555 @@
+1. Prehosp Emerg Care. 2026 Feb 23:1-8. doi: 10.1080/10903127.2026.2627354.
+Online  ahead of print.
+
+Low Dose Ketamine as an Alternative to Morphine for Prehospital Analgesia in 
+STEMI: The SCAKet Retrospective Feasibility Study.
+
+Saget F(1)(2), Oriot G(1), Esvan M(3), Auffret V(4), Soulat L(1), Reuter 
+PG(1)(2), Peschanski N(1).
+
+Author information:
+(1)Emergency Department, Emergency Medical Service, CHU Rennes, Univ Rennes, 
+Rennes, France.
+(2)Univ Rennes, EHESP, Arènes UMR 6051, Rennes, France.
+(3)Centre d'investigation Clinique de Rennes (CIC1414), Clinical Pharmacology 
+Department, Univ Rennes, CHU Rennes, Inserm, CIC, Rennes, France.
+(4)Cardiology Department, Univ Rennes, CHU Rennes, Rennes, France.
+
+OBJECTIVES: Optimal analgesic in acute coronary syndrome (ACS) remains debated, 
+particularly in the prehospital setting. Opioids, particularly morphine, are 
+widely used despite concerns over adverse effects and potential drug 
+interactions. Sub-dissociative ketamine represents a potential alternative, but 
+evidence in ischemic chest pain is lacking. In November 2023, our 
+physician-staffed emergency medical services (EMS) implemented a new protocol 
+recommending ketamine as first-line analgesia for patients with ST-segment 
+elevation myocardial infarction (STEMI) and a Numeric Rating Scale (NRS) ≥5. Our 
+study objective was to describe analgesic practices and early outcomes after 
+implementation.
+METHODS: We conducted a single-center, retrospective, chart review of patients 
+managed by Rennes Mobile Intensive Care Unit (MICU) team with a prehospital 
+diagnosis of STEMI, between November 10, 2023, and November 10, 2024. Case 
+identification was performed through telecommunicator records and electronic 
+patient care reports. Data abstraction followed a standardized tool with dual 
+independent review. Only patients who received an analgesic were included. The 
+primary outcome was the first-line analgesic administered. Secondary outcomes 
+included pain scores, use of rescue therapy, multimodal analgesia, and adverse 
+events. Analyses were descriptive.
+RESULTS: Among 279 prehospital STEMIs, 74 patients met inclusion criteria. 
+First-line analgesics were acetaminophen (n = 23, 31%), ketamine (n = 21, 28%), 
+and morphine (n = 30, 41%). Median initial NRS was 5 (3-5) for acetaminophen, 8 
+(6-8) for ketamine, and 7 (6-10) for morphine. Post-analgesia NRS were 5 (1-5), 
+4 (2-7) and 7 (3-8), respectively. Rescue analgesia occurred in 3 ketamine 
+patients (14%) and 2 morphine patients (7%). Multimodal analgesia with 
+acetaminophen was used in 38% of ketamine patients and 50% of morphine patients; 
+nitroglycerin was administered in 5 cases. Adverse events were infrequent; no 
+respiratory depression or hemodynamic instability were reported.
+CONCLUSIONS: After introducing sub-dissociative ketamine into the STEMI protocol 
+in our physician-staffed EMS agency, it was administered as frequently as 
+morphine for prehospital STEMI analgesia and was associated with low rates of 
+documented adverse effects. These initial results demonstrate the feasibility of 
+using ketamine for the prehospital management of cardiac ischemic pain and 
+suggest the need for a prospective multicenter randomized controlled trial.
+
+DOI: 10.1080/10903127.2026.2627354
+PMID: 41730141
+
+
+2. Front Cardiovasc Med. 2025 Nov 18;12:1672200. doi: 10.3389/fcvm.2025.1672200. 
+eCollection 2025.
+
+Case Report: Severe thrombocytopenia in the context of concomitant tirofiban and 
+ibuprofen use: does ibuprofen matter?
+
+Zhu J(1), Chen C(2), Zhu C(3), Sun L(3).
+
+Author information:
+(1)Department of Nursing, The First Affiliated Hospital of Shandong First 
+Medical University & Shandong Provincial Qianfoshan Hospital, Jinan, China.
+(2)Department of Gerontology, The First Affiliated Hospital of Shandong First 
+Medical University & Shandong Provincial Qianfoshan Hospital, Jinan, China.
+(3)Department of Neurology, The First Affiliated Hospital of Shandong First 
+Medical University & Shandong Provincial Qianfoshan Hospital, Jinan, China.
+
+Tirofiban is a glycoprotein (GP) IIb/IIIa receptor antagonist that inhibits 
+platelet-to-platelet interactions and thrombosis by preventing fibrinogen from 
+binding to platelets. While it has the potential to cause thrombocytopenia and 
+bleeding, instances of severe thrombocytopenia are rare. The question arises 
+whether the concurrent use of tirofiban with other drugs that pose risks to 
+platelets might increase the likelihood of severe platelet depletion. Herein, we 
+present two cases of profound and sudden thrombocytopenia associated with 
+tirofiban use in the treatment of acute progressive stroke. Both patients 
+received ibuprofen for pain relief concomitantly. Drug-induced thrombocytopenia 
+(DITP), a rare but potentially life-threatening adverse effect, occurred. 
+Ibuprofen is a nonsteroidal anti-inflammatory drugs (NSAIDs) with both aspects 
+regarding platelets: function inhibition, responsible for drug-induced 
+thrombocytopenia. We recommend avoiding concomitant use of ibuprofen in patients 
+receiving tirofiban infusion. Alternative analgesics (e.g., 
+acetaminophen/paracetamol) may be considered when pain management is required. 
+If concurrent administration is unavoidable, intensive platelet count monitoring 
+(e.g., every 6-12 h) is imperative during the first 24 h of therapy.
+
+© 2025 Zhu, Chen, Zhu and Sun.
+
+DOI: 10.3389/fcvm.2025.1672200
+PMCID: PMC12669150
+PMID: 41341297
+
+Conflict of interest statement: The authors declare that the research was 
+conducted in the absence of any commercial or financial relationships that could 
+be construed as a potential conflict of interest.
+
+
+3. ChemMedChem. 2025 Nov 18;20(22):e202500639. doi: 10.1002/cmdc.202500639. Epub 
+2025 Oct 21.
+
+Computational Insights into the Structural Basis for Reduced Hepatotoxicity of 
+Novel Nonopioid Analgesics.
+
+Coderch C(1), Bazán HA(2), Bazan NG(3)(4), Surjyadipta B(3), Alvarez-Builla 
+J(5), de Pascual-Teresa B(1).
+
+Author information:
+(1)Departamento de Química y Bioquímica, Facultad de Farmacia, Universidad San 
+Pablo-CEU, CEU Universities, Urbanización Montepríncipe, 28668, Madrid, Spain.
+(2)Division of Vascular and Endovascular Surgery, Sutter Health, California 
+Pacific Medical Center, San Francisco, CA, 94109, USA.
+(3)Neuroscience Center of Excellence, School of Medicine, Louisiana State 
+University Health New Orleans, New Orleans, LA, 70112, USA.
+(4)Department of Physiology, School of Medicine, Louisiana State University 
+Health New Orleans, New Orleans, LA, 70112, USA.
+(5)Department of Organic Chemistry, University of Alcala, Alcala de Henares, 
+28871, Madrid, Spain.
+
+Acetaminophen (ApAP) toxicity arises from the reactive intermediate 
+N-acetyl-p-benzoquinone imine (NAPQI), a degradation product known to cause 
+significant liver damage and kidney injury. This toxicity is a major concern 
+associated with the widespread use of ApAP, a commonly used nonsteroidal 
+anti-inflammatory drug. To address this important issue, a series of novel 
+nonopioid analgesic candidates with reduced toxicity have been recently 
+reported. However, the molecular and atomic-level mechanisms underlying their 
+decreased toxicity remain largely unexplored. In this study, computational 
+analyses is performed to investigate the dynamic behavior, physicochemical 
+properties, and ligand-receptor interactions of these new chemical entities 
+(NCEs). The findings provide a rational explanation for their differing toxicity 
+profiles and contribute to a deeper understanding of their metabolic pathways. 
+Based on these insights, compound 6 has emerged as a promising ApAP alternative 
+and is currently under development. These investigations pave the way for 
+designing novel hepatotoxicity-free NCE analgesics with improved drug metabolism 
+and pharmacokinetic properties.
+
+© 2025 The Author(s). ChemMedChem published by Wiley‐VCH GmbH.
+
+DOI: 10.1002/cmdc.202500639
+PMCID: PMC12640669
+PMID: 41118753 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.
+
+
+4. Methods. 2026 Jan;245:69-82. doi: 10.1016/j.ymeth.2025.08.012. Epub 2025 Sep
+10.
+
+Rapid in vitro and computer-aided method for assessing synergistic interactions 
+between NSAIDs and analgesics.
+
+Silva F(1), Costa G(1), Veiga F(1), Moura V(2), Dias F(3), Cerqueira F(4), 
+Medeiros R(5), Paiva-Santos AC(6).
+
+Author information:
+(1)Department of Pharmaceutical Technology, Faculty of Pharmacy of the 
+University of Coimbra, University of Coimbra, Coimbra, Portugal; REQUIMTE/LAQV, 
+Group of Pharmaceutical Technology, Faculty of Pharmacy of the University of 
+Coimbra, University of Coimbra, Coimbra, Portugal.
+(2)Basinnov Life Sciences, Avenida José Malhoa, Ed. Malhoa Plaza, n° 2 3° Piso, 
+Escritório 3.7, 1070-325 Lisboa, Portugal.
+(3)Molecular Oncology and Viral Pathology Group, Research Center of IPO Porto 
+(CI-IPOP)/RISE@CI-IPOP (Health Research Network), Portuguese Oncology Institute 
+of Porto (IPO Porto)/Porto Comprehensive Cancer Center (Porto.CCC), Rua Dr 
+António Bernardino de Almeida, 4200-072 Porto, Portugal; School of Medicine and 
+Biomedical Sciences, University Fernando Pessoa, Avenida Fernando Pessoa 150, 
+4420-096 Gondomar, Portugal; FP-I3ID, FP-BHS, Universidade Fernando Pessoa, 
+Praça 9 de Abril, 349, 4249-004 Porto, Portugal.
+(4)Molecular Oncology and Viral Pathology Group, Research Center of IPO Porto 
+(CI-IPOP)/RISE@CI-IPOP (Health Research Network), Portuguese Oncology Institute 
+of Porto (IPO Porto)/Porto Comprehensive Cancer Center (Porto.CCC), Rua Dr 
+António Bernardino de Almeida, 4200-072 Porto, Portugal; FP-I3ID, FP-BHS, 
+Universidade Fernando Pessoa, Praça 9 de Abril, 349, 4249-004 Porto, Portugal; 
+Faculty of Health Sciences, University Fernando Pessoa, Rua Carlos da Maia, 296, 
+4200-150 Porto, Portugal; RISE-Health, Faculty of Heath Sciences, University 
+Fernando Pessoa, Rua Carlos da Maia, 296, 4200-150 Porto, Portugal. Electronic 
+address: fatimaf@ufp.edu.pt.
+(5)Molecular Oncology and Viral Pathology Group, Research Center of IPO Porto 
+(CI-IPOP)/RISE@CI-IPOP (Health Research Network), Portuguese Oncology Institute 
+of Porto (IPO Porto)/Porto Comprehensive Cancer Center (Porto.CCC), Rua Dr 
+António Bernardino de Almeida, 4200-072 Porto, Portugal; FP-I3ID, FP-BHS, 
+Universidade Fernando Pessoa, Praça 9 de Abril, 349, 4249-004 Porto, Portugal; 
+Faculty of Health Sciences, University Fernando Pessoa, Rua Carlos da Maia, 296, 
+4200-150 Porto, Portugal; RISE-Health, Faculty of Heath Sciences, University 
+Fernando Pessoa, Rua Carlos da Maia, 296, 4200-150 Porto, Portugal.
+(6)Department of Pharmaceutical Technology, Faculty of Pharmacy of the 
+University of Coimbra, University of Coimbra, Coimbra, Portugal; REQUIMTE/LAQV, 
+Group of Pharmaceutical Technology, Faculty of Pharmacy of the University of 
+Coimbra, University of Coimbra, Coimbra, Portugal. Electronic address: 
+acsantos@ff.uc.pt.
+
+Pain is a complex phenomenon that plays a significant role in various diseases, 
+influencing both the physical and psychological well-being of individuals. In 
+clinical practice, combining nonsteroidal anti-inflammatory drugs (NSAIDs) with 
+analgesics, such as paracetamol or metamizole, has become a widely adopted 
+strategy to manage pain. Although the synergistic effects of combining NSAIDs 
+with analgesics are well recognized in clinical practice, this approach is 
+primarily based on empirical clinical experience. Our work aims to present a 
+rapid method for evaluating the anti-inflammatory effects of drug combinations 
+through in vitro assays combined with computer-aided data processing and 
+analysis. We conducted two simple and rapid in vitro assays, the Griess and DPPH 
+assays, to evaluate the effects of NSAID-analgesic combinations and demonstrate 
+their synergistic interactions, using the free web application SynergyFinder 
+Plus. This computer-aided analysis enabled a quantitative assessment of drug 
+interactions, enhancing the interpretation of the experimental data. 
+Furthermore, to better understand the results obtained from previous 
+experiments, we analysed the anti-inflammatory effects of ketoprofen and 
+dexketoprofen in combination with metamizole and paracetamol through 
+quantitative real-time PCR (qRT-PCR). Our findings reveal synergistic 
+interactions between NSAIDs and analgesics in terms of their anti-inflammatory 
+and antioxidant activities. This work could be the first step for the study of 
+the mechanisms behind the synergistic interactions between NSAIDs and analgesics 
+for the treatment of pain, mainly when inflammatory processes are involved. 
+Consequently, this study aims to contribute to the exploration of non-opioid 
+drug combinations, addressing the urgent need for alternative analgesic 
+strategies that minimize opioid use.
+
+Copyright © 2025 The Author(s). Published by Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.ymeth.2025.08.012
+PMID: 40889536 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of competing interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper.
+
+
+5. Toxicology. 2025 Dec;518:154248. doi: 10.1016/j.tox.2025.154248. Epub 2025 Aug
+ 5.
+
+A high-throughput microphysiological system to quantify key events leading to 
+liver fibrosis.
+
+Schmidt S(1), Suter-Dick L(2).
+
+Author information:
+(1)School of Life Sciences, University of Applied Sciences and Arts Northwestern 
+Switzerland, Muttenz CH-4132, Switzerland; Department of Pharmaceutical 
+Sciences, University of Basel, Basel CH-4001, Switzerland.
+(2)School of Life Sciences, University of Applied Sciences and Arts Northwestern 
+Switzerland, Muttenz CH-4132, Switzerland; Swiss Centre for Applied Human 
+Toxicology (SCAHT), Basel CH-4001, Switzerland. Electronic address: 
+laura.suterdick@fhnw.ch.
+
+New approach methodologies (NAMs), including microphysiological systems (MPS), 
+are emerging as alternatives to animal testing. In the liver, chronic 
+hepatocellular damage can progress to fibrosis, which has been described by an 
+Adverse Outcome Pathway (AOP). However, standardized in vitro models that 
+capture and quantify key AOP events and cell-cell interactions are lacking. We 
+developed a scalable liver fibrosis model using the 384-well Akura™ Twin 
+microplate featuring 168 interconnected well pairs. We studied fibrosis 
+progression by seeding HepaRG microtissues (MTs), with or without THP-1 cells in 
+alpha wells and hepatic stellate cell (hTERT-HSC) MTs in beta wells. Cell health 
+and metabolic activity were monitored via specific sensors that detect glucose 
+and lactate levels. Transforming growth factor beta 1 (TGF-β1), methotrexate 
+(MTX) and acetaminophen (APAP) reduced albumin production, indicating 
+hepatocellular injury. TGF-β1 activated THP-1, increasing ALOX5AP, TREM2, and 
+TGF-β1 mRNA expression. PAI-1 protein levels increased following treatment with 
+TGF-β1, particularly in HepaRG-THP-1 co-cultures. In hTERT-HSCs, TGF-β1 also 
+induced expression of fibrosis markers (ACTA2, COL1A1, COL3A1 and FN1) and 
+increased stress fibers and fibronectin expression. Extracellular matrix 
+remodeling was confirmed by elevated Pro-Collagen 1A1 and CTGF protein levels 
+upon TGF-β1 treatment. The Akura™ Twin platform enables high-throughput modeling 
+of liver fibrosis, mimicking the key events of the liver fibrosis AOP. This 
+model, combining a high-throughput MPS with established cell lines, offers a 
+promising tool to investigate fibrosis mechanisms and advancing quantitative AOP 
+development. Journal: Toxicology (Special Issue: Hepatotoxicity: mechanisms and 
+animal-free prediction models).
+
+Copyright © 2025 The Authors. Published by Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.tox.2025.154248
+PMID: 40754287 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of Competing Interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper. The author is an Editorial Board Member/Editor-in-Chief/Associate 
+Editor/Guest Editor for this journal and was not involved in the editorial 
+review or the decision to publish this article.
+
+
+6. Int J Biol Macromol. 2025 Sep;321(Pt 2):146376. doi: 
+10.1016/j.ijbiomac.2025.146376. Epub 2025 Jul 28.
+
+Human serum albumin-based cryogels as a biomimetic platform for 3D co-culture 
+and drug-induced liver injury prediction.
+
+Duan K(1), Hu J(2), Zhao Y(2), Lin M(2), Xu M(2), Li T(3), Lee BH(4).
+
+Author information:
+(1)Joint Research Centre on Medicine, The Affiliated Xiangshan Hospital of 
+Wenzhou Medical University, Ningbo, Zhejiang 315700, China; Wenzhou Institute, 
+University of Chinese Academy of Sciences, Wenzhou, Zhejiang 325011, China; 
+Postgraduate Training Base Alliance of Wenzhou Medical University, Wenzhou 
+325035, China.
+(2)Joint Research Centre on Medicine, The Affiliated Xiangshan Hospital of 
+Wenzhou Medical University, Ningbo, Zhejiang 315700, China.
+(3)Joint Research Centre on Medicine, The Affiliated Xiangshan Hospital of 
+Wenzhou Medical University, Ningbo, Zhejiang 315700, China; Wenzhou Institute, 
+University of Chinese Academy of Sciences, Wenzhou, Zhejiang 325011, China. 
+Electronic address: litingting@ucas.ac.cn.
+(4)Joint Research Centre on Medicine, The Affiliated Xiangshan Hospital of 
+Wenzhou Medical University, Ningbo, Zhejiang 315700, China; Wenzhou Institute, 
+University of Chinese Academy of Sciences, Wenzhou, Zhejiang 325011, China; 
+Postgraduate Training Base Alliance of Wenzhou Medical University, Wenzhou 
+325035, China. Electronic address: bhlee@wiucas.ac.cn.
+
+Nonclinical toxicity testing in rodent and nonrodent models often fails to 
+predict human pharmacological responses, and the reliance on poorly 
+characterized biomaterials hinders clinical translation in drug development. To 
+address these limitations, we engineered a human serum albumin methacryloyl 
+(HSAMA) cryogel system incorporating key liver extracellular matrix (ECM) 
+components, collagen I (C) and fibronectin (F), to mimic the liver's 
+architectural complexity. By co-culturing HepG2 and HUVECs within the HSAMA-CF 
+cryogel, we created a three-dimensional, large-pore scaffold that facilitates 
+critical hepatocyte-endothelial cell interactions essential for liver function 
+and drug metabolism. Over extended culture periods, the HSAMA-CF cryogel 
+significantly enhanced liver-specific functions, including elevated albumin 
+production, increased urea secretion, and upregulated expression of hepatic 
+functional genes. Notably, the co-culture model successfully detected multiple 
+hepatotoxic phenotypes-such as elevated transaminase levels, hepatocyte damage, 
+and steatosis-following exposure to known hepatotoxins like fialuridine and 
+acetaminophen. This HSAMA-CF co-culture system may represent a robust in vitro 
+platform for liver toxicity assessment. By closely mimicking human liver 
+physiology and drug responses, it might offer a promising alternative to 
+traditional animal models, potentially improving drug safety evaluations, 
+reducing reliance on preclinical animal testing, and minimizing risks associated 
+with clinical drug development.
+
+Copyright © 2025 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.ijbiomac.2025.146376
+PMID: 40738447 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of competing interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper.
+
+
+7. Cell Rep Med. 2025 Jun 17;6(6):102139. doi: 10.1016/j.xcrm.2025.102139. Epub 
+2025 May 16.
+
+Acetaminophen inhibits diacylglycerol lipase synthesis of 2-arachidonoyl 
+glycerol: Implications for nociception.
+
+Dvorakova M(1), Bosquez-Berger T(2), Billingsley J(2), Murataeva N(2), Woodward 
+T(2), Leishman E(2), Zimmowitch A(2), Gibson A(2), Wager-Miller J(2), Cai R(3), 
+Cai S(3), Ware T(4), Hsu KL(5), Li Y(6), Bradshaw H(2), Mackie K(1), Straiker 
+A(7).
+
+Author information:
+(1)Department of Psychological and Brain Sciences, Indiana University, 
+Bloomington, IN 47405, USA; Gill Institute for Neuroscience, Indiana University, 
+Bloomington, IN 47405, USA.
+(2)Department of Psychological and Brain Sciences, Indiana University, 
+Bloomington, IN 47405, USA.
+(3)State Key Laboratory of Membrane Biology, Peking University School of Life 
+Sciences, Beijing 100871, China; PKU-IDG/McGovern Institute for Brain Research, 
+Beijing 100871, China.
+(4)Department of Chemistry, University of Virginia, Charlottesville, VA 22904, 
+USA.
+(5)Department of Chemistry, University of Texas at Austin, Austin, TX 78712, 
+USA.
+(6)State Key Laboratory of Membrane Biology, Peking University School of Life 
+Sciences, Beijing 100871, China; PKU-IDG/McGovern Institute for Brain Research, 
+Beijing 100871, China; Peking-Tsinghua Center for Life Sciences, New Cornerstone 
+Science Laboratory, Academy for Advanced Interdisciplinary Studies, Beijing 
+100871, China.
+(7)Department of Psychological and Brain Sciences, Indiana University, 
+Bloomington, IN 47405, USA; Gill Institute for Neuroscience, Indiana University, 
+Bloomington, IN 47405, USA. Electronic address: straiker@iu.edu.
+
+Acetaminophen (paracetamol) is a common analgesic, but its mechanism of action 
+remains unknown. Despite causing around 500 deaths annually in the US, safer 
+alternatives have not been developed. Because endocannabinoids may have a role 
+in acetaminophen action, we examine interactions between the two. We report that 
+acetaminophen inhibits the activity of diacylglycerol lipase α (DAGLα), but not 
+DAGLβ, decreasing the production of the endocannabinoid 2-arachidonoyl glycerol. 
+This gives rise to the counterintuitive hypothesis that decreasing 
+endocannabinoid production by DAGLα inhibition may be antinociceptive in certain 
+settings. Supporting this hypothesis, we find that diacylglycerol lipase (DAGL) 
+inhibition by RHC80267 is antinociceptive in wild-type but not CB1 knockout mice 
+in the hot-plate test. We propose (1) that activation of DAGLα may exacerbate 
+some forms of nociception and (2) a mechanism for the antinociceptive actions of 
+acetaminophen, whereby acetaminophen inhibits a DAGLα/CB1-based circuit that 
+plays a permissive role in at least one form of nociception.
+
+Copyright © 2025 The Author(s). Published by Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.xcrm.2025.102139
+PMCID: PMC12208326
+PMID: 40381619 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of interests The authors declare no 
+competing interests.
+
+
+8. Biomed Pharmacother. 2025 Jun;187:118069. doi: 10.1016/j.biopha.2025.118069. 
+Epub 2025 Apr 29.
+
+Pharmacological bases of combining nonsteroidal antiinflammatory drugs and 
+paracetamol.
+
+Tena-Garitaonaindia M(1), Rubio JM(2), Martínez-Plata E(3), Martínez-Augustin 
+O(1), Sánchez de Medina F(4).
+
+Author information:
+(1)Department of Biochemistry and Molecular Biology II, School of Pharmacy, 
+Instituto de Investigación Biosanitaria ibs.GRANADA, University of Granada, 
+Granada, Spain; Centro de Investigación Biomédica en Red de Enfermedades 
+Hepáticas y Digestivas (CIBERehd), Instituto de Salud Carlos III, Madrid, Spain.
+(2)Department of Pharmacology, School of Pharmacy, Instituto de Investigación 
+Biosanitaria ibs.GRANADA, University of Granada, Granada, Spain; Centro de 
+Investigación Biomédica en Red de Enfermedades Hepáticas y Digestivas 
+(CIBERehd), Instituto de Salud Carlos III, Madrid, Spain.
+(3)Serviciode Farmacia Hospitalaria, Hospital Universitario Clínico San Cecilio.
+(4)Department of Pharmacology, School of Pharmacy, Instituto de Investigación 
+Biosanitaria ibs.GRANADA, University of Granada, Granada, Spain; Centro de 
+Investigación Biomédica en Red de Enfermedades Hepáticas y Digestivas 
+(CIBERehd), Instituto de Salud Carlos III, Madrid, Spain. Electronic address: 
+fsanchez@ugr.es.
+
+Paracetamol and nonsteroidal antiinflammatory drugs (NSAIDs), particularly 
+ibuprofen, are frequently administered together. A systematic review of clinical 
+studies using combined or alternating regimes of NSAIDs was performed up to May 
+2023. Clinical evidence (77 studies) confirms that in many cases efficacy is 
+enhanced by paracetamol + NSAID combinations, but quite a few studies show no 
+added benefit. Synergism is more commonly found with combined regimens in 
+analgesia for surgery, and with alternating regimes in antipyresis. In some 
+instances the advantage may be related to the short duration of the effect of 
+paracetamol. Mechanistically, central and peripheral actions associated with 
+inhibition of cyclooxygenase have been documented for both paracetamol and 
+NSAIDs, which are relevant for analgesia, antipyresis and closure of patent 
+ductus arteriosus in neonates. In addition, paracetamol may achieve analgesia 
+via different central pathways independently of cyclooxygenase. Hence, increased 
+analgesia may result from NSAID and paracetamol acting at least partly via 
+different mechanisms, while enhancement of antipyresis probably is explained 
+simply by augmented or more prolongued inhibition of cyclooxygenase. Because of 
+the inconsistencies found in the available evidence, added benefit should not be 
+assumed for paracetamol/NSAID combinations. In addition, combining paracetamol 
+and NSAIDs may lead to increased dosing errors, and may result in increased 
+toxicity as a result of enhanced cyclooxygenase interference, a possibility that 
+has barely been scrutinized. We conclude that combining paracetamol and NSAIDs 
+may be justified in analgesia, but further studies are warranted to establish 
+when and how an enhanced effect is achieved with this strategy.
+
+Copyright © 2025 The Authors. Published by Elsevier Masson SAS.. All rights 
+reserved.
+
+DOI: 10.1016/j.biopha.2025.118069
+PMID: 40306178 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of Competing Interest The authors 
+declare the following financial interests/personal relationships which may be 
+considered as potential competing interests: Fermín Sánchez de Medina reports 
+financial support was provided by Instituto de Salud Carlos III. Olga 
+Martínez-Augustin reports financial support was provided by Ministry of Science, 
+Innovation and Universities. Fermín Sánchez de Medina reports financial support 
+was provided by Junta de Andalucía. Olga Martínez-Augustin reports financial 
+support was provided by Junta de Andalucía. Mireia Tena-Garitaonaindia reports 
+financial support was provided by Ministry of Education. José Manuel Rubio 
+reports financial support was provided by Ministry of Work and Social Economy. 
+Fermín Sánchez de Medina reports a relationship with Pfizer that includes: 
+speaking and lecture fees. If there are other authors, they declare that they 
+have no known competing financial interests or personal relationships that could 
+have appeared to influence the work reported in this paper.
+
+
+9. Stud Health Technol Inform. 2025 Apr 8;323:149-153. doi: 10.3233/SHTI250067.
+
+Minimizing STOPP and Beers Criteria Risks in PIM Treatments Using PM-TOM and 
+ChatGPT: A Case Study.
+
+Kulenovic A(1), Lagumdzija-Kulenovic A(1).
+
+Author information:
+(1)Absolute Information Age, Inc. Toronto, Canada.
+
+PM-TOM (Personalized Medicine-Therapy Optimization Method) is a clinical 
+decision-support tool designed to optimize polypharmacy treatments by minimizing 
+their adverse drug reactions (ADRs) caused by individual drugs or drug 
+interactions (DDIs, DCIs, DFIs, DGIs), along with the risks identified by the 
+STOPP and Beers criteria. On the other hand, AI tools like ChatGPT 4.0, trained 
+on medical literature texts, can provide broader clinical reasoning and insights 
+tailored to individual patient contexts. By referring to a documented 
+deprescribing case, this study demonstrates the synergistic power of PM-TOM and 
+ChatGPT in optimizing potentially inappropriate medication (PIM) treatments. A 
+malnourished older woman was admitted to a deprescribing facility with recurrent 
+falls, hypertension, ischemic heart disease, depression, osteoarthritis, 
+osteoporosis, and GERD. She was initially prescribed acetaminophen, alendronate, 
+omeprazole, lisinopril, metoprolol, aspirin, citalopram, and vitamin D, which 
+were assessed as inadequate. While the discharge regimen improved some 
+conditions by replacing alendronate with zoledronic acid and reducing some drug 
+dosages, PM-TOM revealed that key risks, stemming primarily from omeprazole, 
+aspirin, and citalopram, remained unaddressed. The discharge treatment was 
+optimized with PM-TOM after considering alternative drug classes suggested by 
+ChatGPT and elaborated in the available medical literature. In the optimized 
+treatment, omeprazole (PPI) was replaced with famotidine (H2-blocker), 
+citalopram (SSRI) with agomelatine (atypical antidepressant), zoledronic acid 
+(bisphosphonate) with denosumab (RANK ligand inhibitor), aspirin (NSAID) with 
+ticagrelor (antiplatelet), and lisinopril with benazepril (ACE inhibitor). These 
+changes significantly reduced possible ADRs and the geriatric care criteria 
+risks. Finally, ChatGPT validated the proposed adjustments, confirming their 
+alignment with the guidelines and highlighting the potential for longer-term 
+benefits. This case study illustrates how a combined use of PM-TOM and AI tools 
+can effectively support the clinical decision-making process by optimizing 
+polypharmacy treatments and minimizing their PIMs, major contributors to 
+morbidity in older adults and high healthcare costs.
+
+DOI: 10.3233/SHTI250067
+PMID: 40200464 [Indexed for MEDLINE]
+
+
+10. Molecules. 2024 Sep 18;29(18):4437. doi: 10.3390/molecules29184437.
+
+Driving Forces in the Formation of Paracetamol Cocrystals and Solvate with 
+Naphthalene, Quinoline and Acridine.
+
+Muzioł TM(1), Bronikowska E(1).
+
+Author information:
+(1)Faculty of Chemistry, Nicolaus Copernicus University in Toruń, Gagarina 7, 
+87-100 Toruń, Poland.
+
+Paracetamol is an important analgesic and antipyretic drug showing poor 
+tabletability. Among the various approaches used to improve this property, 
+understanding the forces that govern the crystal packing is revealed to be 
+crucial. We prepared three stable compounds: (par)2∙(nap) (1), (par)∙(quin) (2), 
+and (par)∙(acr) (3) (nap-naphthalene, quin-quinoline, acr-acridine) being 
+cocrystals or solvate. The structural studies showed that all the reported 
+compounds are composed of alternately arranged layers of paracetamol and 
+coformer. Several supramolecular motifs in the paracetamol layer were 
+identified: R44(22) in (1); R64(20) and R22(8) in (2); and R22(8), R42(12), and 
+R44(26) rings in (3). The stability of the crystal network was studied by 
+interactions analysis performed by Hirshfeld surface and fingerprint approaches 
+and the energy between the closest units in the crystal network was calculated. 
+It showed that the strongest interactions were found between blocks connected by 
+N-H⋯O=C and O-H⋯O/N hydrogen bonds due to an important coulombic factor. The 
+dispersive energy becomes important for tail-to-tail (and head-to-tail) arranged 
+paracetamol units, and it prevails in the case of stacking interactions between 
+coformer molecules. The importance of dispersive forces increases with the size 
+of the aromatic system of the coformer. XAS studies confirmed the successful 
+preparation of compounds and provided some details about electron structure.
+
+DOI: 10.3390/molecules29184437
+PMCID: PMC11434482
+PMID: 39339432
+
+Conflict of interest statement: The authors declare no conflicts of interest.
