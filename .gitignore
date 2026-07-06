@@ -1,0 +1,23 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment secrets — never commit
+.env
+
+# NCBI / PubMed fetched corpus (regenerate via IngestionService)
+data/raw/pubmed.txt
+
+# Data files — use DVC or documented download scripts instead
+data/*.csv
+data/*.json
+
+# Notebooks output
+notebooks/.ipynb_checkpoints/
+
+# OS artefacts
+.DS_Store
+Thumbs.db

@@ -1,0 +1,4 @@
+# This file ensures the data/raw/ directory is tracked by git.
+# The pubmed.txt corpus file is NOT committed (see .gitignore).
+# Run IngestionService.ingest_pubmed() or copy a pre-built pubmed.txt here
+# before running the application.
