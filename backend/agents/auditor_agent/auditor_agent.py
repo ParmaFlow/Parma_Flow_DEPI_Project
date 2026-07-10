@@ -64,6 +64,8 @@ class AuditorAgent(BaseAgent):
 
         approved = self._determine_approval(blocking_errors, warning_count)
         audit_status = self._determine_audit_status(approved, warning_count)
+        if any(r.rule_name == "EXPIRY_DOMINANCE_OVERRIDE" for r in rule_results):
+            audit_status = "FAILED_AUDIT"
         failed_rules = [r.rule_name for r in rule_results]
 
         summary = self._generate_audit_summary(
@@ -208,6 +210,17 @@ class AuditorAgent(BaseAgent):
             )
 
         expiry_days = item_data.get("expiry_days")
+        lead_time = item_data.get("lead_time", 0) or 0
+        if expiry_days is not None and (expiry_days < lead_time or expiry_days < 30):
+            rules.append(
+                AuditRuleResult(
+                    "EXPIRY_DOMINANCE_OVERRIDE",
+                    RuleSeverity.BLOCKER.value,
+                    f"Imminent expiry override: expiry_days={expiry_days} is below "
+                    f"lead_time={lead_time} or the 30-day clinical threshold.",
+                )
+            )
+
         if expiry_days is not None and expiry_days <= EXPIRED_PRODUCT_DAYS:
             rules.append(
                 AuditRuleResult(
@@ -402,6 +415,18 @@ class AuditorAgent(BaseAgent):
     # LLM used strictly for explanation text generation
     # ------------------------------------------------------------------
     def _generate_audit_summary(self, ops_decision, risk_assessment, approved, audit_status, rule_results) -> dict:
+        if any(r.rule_name == "EXPIRY_DOMINANCE_OVERRIDE" for r in rule_results):
+            audit_status = "FAILED_AUDIT"
+        failed = ", ".join(r.rule_name for r in rule_results) if rule_results else "No rule violations detected"
+        return {
+            "reasoning": (
+                f"Audit status is {audit_status}; approved={approved}. Failed rules: {failed}. "
+                "Expiry dominance blocks autonomous execution whenever shelf life is below supplier "
+                "lead time or the 30-day clinical threshold."
+            )
+        }
+
+    def _generate_llm_audit_summary(self, ops_decision, risk_assessment, approved, audit_status, rule_results) -> dict:
         llm_input = {
             "sku_name": ops_decision.sku,
             "action": ops_decision.action,

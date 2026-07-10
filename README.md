@@ -1,182 +1,308 @@
-# Pharma-Flow
+# Pharma-Flow AI
 
-**Multi-Agent Pharmaceutical Supply Chain Intelligence System**
+Production-grade multi-agent pharmaceutical inventory intelligence for shortage detection, clinical risk assessment, GxP audit control, and executive reporting.
 
-An enterprise-grade AI pipeline that analyzes pharmaceutical inventory data through a four-stage multi-agent workflow (Ops → Risk → Audit → Report) with deterministic business logic, LLM-powered explanations, and a Safe AI Guardrail.
+Pharma-Flow runs inventory scenarios through a deterministic Ops -> Risk -> Audit -> Report pipeline. Numeric decisions are computed in Python first; generated text is grounded from those computed fields so the dashboard, agent narratives, and next actions cannot disagree about stock gaps, reorder quantities, audit blocks, or final status.
+
+---
+
+## What It Does
+
+- Computes reorder point, safety stock, inventory gap, stock cover, and recommended order quantity.
+- Scores shortage, expiry, lead-time, confidence, and clinical criticality risk.
+- Applies a GxP-style audit rule engine before autonomous execution is allowed.
+- Produces executive report sections and prescriptive next actions from one unified state.
+- Cleans PubMed/RAG context before it reaches the UI or prompt layer.
+- Provides a Streamlit dashboard for EDA, what-if simulation, agent traces, and report output.
+
+---
+
+## Core Guarantees
+
+### Deterministic Math First
+
+The LLM is never trusted to calculate inventory or risk values. Agents compute all operational facts in Python, then any narrative text is generated from those facts.
+
+Key invariant:
+
+```text
+inventory_gap = max(max(reorder_point, forecast_demand) - available_stock, 0)
+```
+
+For zero-stock emergencies, OpsAgent adds the safety target to force a full shelf reset.
+
+### Guardrails
+
+- If `available_stock == 0`, stock cover is `0.00`, action is `REORDER`, and recommended quantity is nonzero.
+- If `forecast_demand <= 0` while stock is positive, action becomes `HOLD_MONITOR`; RiskAgent suppresses shortage alarms and logs: `Zero demand input detected; inventory tracking paused.`
+- All displayed and reported order quantities use the same rounded `recommended_qty`.
+- If `expiry_days < lead_time` or `expiry_days < 30`, AuditorAgent forces `FAILED_AUDIT`, blocks execution, and ReportAgent recommends `URGENT_DISPOSAL_AND_REPLACEMENT`.
+- Report sections render once in the dashboard; next actions appear only in the prescriptive action table.
+- RAG context strips emails, affiliations, DOI/PMID metadata, and researcher-address noise.
 
 ---
 
 ## Architecture
 
-```
+```text
+app/Pharmaflow_dashboard.py
+  Streamlit dashboard
+  - EDA and supply-chain insights
+  - What-if simulation controls
+  - PubMed/RAG context display
+  - Multi-agent trace and executive report
+
 app/main.py
-  └─ QueryService
-       ├─ backend.bootstrap.build_orchestrator()
-       │    └─ Orchestrator
-       │         ├─ OpsAgent    → inventory gap, safety stock, reorder point (Python)
-       │         │               + LLM explanation (OPS_AGENT_PROMPT)
-       │         ├─ RiskAgent   → multi-factor risk score 0-100 (Python)
-       │         │               + LLM clinical risk bulletin
-       │         ├─ AuditorAgent→ GxP rule engine (Python)
-       │         │               + LLM compliance narrative
-       │         └─ ReportAgent → LLM executive report synthesis
-       └─ ActionService  (ERP side-effects: purchase orders, alerts, tickets)
+  CLI/demo entry point
 
-core/llm.py          → single LLM integration point (retry, backoff, timeout)
-core/vectorstore.py  → FAISS nearest-neighbour retrieval
-core/embeddings.py   → sentence-transformers embedding wrapper
-rag/pipeline.py      → RAG pipeline (chunking → embedding → retrieval)
-data_sources/        → PubMed API client + Document loader
-app/config/settings.py → centralized configuration (all env vars)
+backend/bootstrap.py
+  Composition root for registry, logger, and orchestrator
+
+backend/agents/orchestrator/
+  Orchestrator
+  - OpsAgent
+  - RiskAgent
+  - AuditorAgent
+  - ReportAgent
+
+backend/agents/shared/
+  Dataclasses, constants, registry, mapper, exceptions, logger
+
+core/
+  llm.py          LLM client wrapper
+  embeddings.py   Sentence-transformers wrapper
+  vectorstore.py  FAISS vector store
+
+rag/
+  pipeline.py     RAG retrieval and context cleaning
+  indexing.py     Corpus indexing
+  chunking.py     Text chunking
+  retriever.py    Nearest-neighbor retrieval
+
+services/
+  query_service.py
+  action_service.py
+  ingestion_service.py
 ```
 
-### Explainable AI Contract
-All numerical calculations (inventory gap, risk score, rule checks) are performed **deterministically in Python**. The LLM is used **only** to generate human-readable explanation text. This ensures results are auditable, reproducible, and free from LLM arithmetic errors.
+---
+
+## Agent Responsibilities
+
+| Agent | Responsibility | Deterministic Outputs |
+|---|---|---|
+| OpsAgent | Inventory math and operational action | `inventory_gap`, `safety_stock`, `reorder_point`, `recommended_qty`, `inventory_status`, `action` |
+| RiskAgent | Clinical and supply-chain risk scoring | `risk_score`, `risk_level`, `shortage_risk`, `expiry_risk`, `human_review_recommended` |
+| AuditorAgent | Compliance and consistency checks | `approved`, `audit_status`, `failed_rules`, `warning_count`, `blocking_errors` |
+| ReportAgent | Executive synthesis from upstream state | `execution_allowed`, `final_status`, `recommended_action`, report sections |
 
 ---
 
 ## Setup
 
-### 1. Clone the repository
-```bash
-git clone <repo-url>
-cd Parma_Flow_DEPI_Project-mainn
-```
+### 1. Create and activate a virtual environment
 
-### 2. Create a virtual environment
 ```bash
 python -m venv .venv
-# Windows:
-.venv\Scripts\activate
-# macOS/Linux:
+```
+
+Windows PowerShell:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+macOS/Linux:
+
+```bash
 source .venv/bin/activate
 ```
 
-### 3. Install dependencies
+### 2. Install dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Configure environment variables
+### 3. Configure environment variables
+
+Copy the example file:
+
 ```bash
 cp .env.example .env
 ```
 
-Edit `.env` and fill in **at minimum** these two required values:
+On Windows PowerShell:
 
-| Variable | Description | Required |
-|---|---|---|
-| `GROQ_API_KEY` | Your Groq API key ([get one here](https://console.groq.com)) | ✅ Yes |
-| `ENTREZ_EMAIL` | Institutional email for NCBI Entrez API | ✅ Yes |
+```powershell
+Copy-Item .env.example .env
+```
 
-See `.env.example` for all optional tuning variables (LLM model, RAG chunk size, etc.).
+Required for LLM-backed runtime:
 
-### 5. (Optional) Ingest PubMed data for RAG
-The application runs without RAG in Development Mode. To enable RAG:
+| Variable | Description |
+|---|---|
+| `GROQ_API_KEY` | Groq API key for the OpenAI-compatible LLM endpoint |
+
+Required only for PubMed ingestion:
+
+| Variable | Description |
+|---|---|
+| `ENTREZ_EMAIL` | Institutional email for NCBI Entrez |
+| `ENTREZ_API_KEY` | Optional NCBI API key for higher rate limits |
+
+---
+
+## Running the App
+
+### Streamlit dashboard
+
 ```bash
-# Uncomment the IngestionService lines in app/main.py, then run:
+streamlit run app/Pharmaflow_dashboard.py
+```
+
+### CLI/demo workflow
+
+```bash
 python app/main.py
 ```
-Or run ingestion standalone:
+
+---
+
+## Data Inputs
+
+The dashboard expects:
+
+```text
+data/sprint1_output.json
+data/final_dataset.csv
+```
+
+RAG ingestion writes the PubMed corpus to:
+
+```text
+data/raw/pubmed.txt
+```
+
+That corpus is intentionally excluded from version control.
+
+---
+
+## Optional PubMed/RAG Ingestion
+
+Use the ingestion service from a Python shell or script:
+
 ```python
 from services.ingestion_service import IngestionService
+
 svc = IngestionService()
-svc.ingest_pubmed("Paracetamol drug interactions and alternatives")
+svc.ingest_pubmed("drug shortage alternatives hospital pharmacy")
 ```
-> The corpus is saved to `data/raw/pubmed.txt` (excluded from git via `.gitignore`).
 
-### 6. Run the demo
-```bash
-python app/main.py
-```
+The dashboard will still run without a RAG index. If retrieval is unavailable, it falls back to standard shortage-protocol context.
 
 ---
 
-## Environment Variables Reference
+## Testing
 
-| Variable | Default | Description |
-|---|---|---|
-| `GROQ_API_KEY` | — | Groq LLM API key **(required)** |
-| `ENTREZ_EMAIL` | — | NCBI institutional email **(required for ingestion)** |
-| `ENTREZ_API_KEY` | — | NCBI API key (optional — raises rate limit) |
-| `LLM_MODEL` | `llama-3.1-8b-instant` | Groq model name |
-| `LLM_BASE_URL` | `https://api.groq.com/openai/v1` | LLM API endpoint |
-| `LLM_TIMEOUT_SECONDS` | `30.0` | Request timeout |
-| `LLM_MAX_RETRIES` | `3` | Retry attempts on transient errors |
-| `LLM_TEMPERATURE` | `0.2` | Sampling temperature |
-| `LLM_MAX_TOKENS` | `800` | Max response tokens |
-| `PUBMED_DATA_PATH` | `data/raw/pubmed.txt` | RAG corpus file path |
-| `PUBMED_MAX_RESULTS` | `10` | Articles fetched per ingestion query |
-| `EMBEDDING_MODEL` | `all-MiniLM-L6-v2` | Sentence-transformers model |
-| `RAG_CHUNK_SIZE` | `300` | Characters per text chunk |
-| `RAG_CHUNK_OVERLAP` | `50` | Overlap between consecutive chunks |
-| `RAG_RETRIEVAL_K` | `3` | Nearest-neighbour results to retrieve |
-
----
-
-## Project Structure
-
-```
-├── app/
-│   ├── main.py                    # Application entry point
-│   └── config/
-│       └── settings.py            # Centralized configuration (all env vars)
-├── backend/
-│   ├── bootstrap.py               # Dependency injection / composition root
-│   └── agents/
-│       ├── orchestrator/          # Multi-agent workflow coordinator
-│       ├── ops_agent/             # Inventory gap & reorder logic
-│       ├── risk_agent/            # Multi-factor risk scoring
-│       ├── auditor_agent/         # GxP compliance rule engine
-│       ├── report_agent/          # Executive report synthesis
-│       └── shared/                # Models, constants, exceptions, logger
-├── core/
-│   ├── llm.py                     # LLM client (retry, backoff, timeout)
-│   ├── embeddings.py              # Sentence-transformers wrapper
-│   └── vectorstore.py             # FAISS vector store
-├── rag/
-│   ├── pipeline.py                # RAG pipeline (canonical)
-│   ├── indexing.py                # Index builder
-│   ├── chunking.py                # Text chunking
-│   └── retriever.py               # Nearest-neighbour retrieval
-├── services/
-│   ├── query_service.py           # API-facing entry point
-│   ├── action_service.py          # ERP/notification side effects
-│   └── ingestion_service.py       # PubMed data ingestion
-├── data_sources/
-│   ├── pubmed_api.py              # NCBI Entrez client
-│   └── loaders.py                 # Document loader
-├── data/
-│   └── raw/
-│       └── .gitkeep               # Placeholder — pubmed.txt goes here
-├── .env.example                   # Environment variable template
-├── .gitignore
-└── requirements.txt
-```
-
----
-
-## Running Tests
+Run the regression suite:
 
 ```bash
-# Verification script (mock LLM, no API key needed)
-python C:\Users\HP\.gemini\antigravity\brain\0fe6be55-9bce-44b8-8cbf-a3854cb557c2\scratch\verify_merged.py
+python -m unittest discover -s tests
+```
+
+Compile-check the main modules:
+
+```bash
+python -m py_compile backend/agents/ops_agent/ops_agent.py backend/agents/risk_agent/risk_agent.py backend/agents/auditor_agent/auditor_agent.py backend/agents/report_agent/report_agent.py app/Pharmaflow_dashboard.py
+```
+
+Current regression coverage includes:
+
+- Clopidogrel-style ROP shortage alignment.
+- Zero-stock divide-by-zero protection.
+- Zero-demand `HOLD_MONITOR` behavior.
+- Expiry dominance audit block.
+- Report quantity consistency.
+- RAG metadata/email cleaning.
+
+---
+
+## Environment Variables
+
+| Variable | Default | Purpose |
+|---|---:|---|
+| `GROQ_API_KEY` | none | LLM API key |
+| `LLM_MODEL` | `llama-3.1-8b-instant` | LLM model name |
+| `LLM_BASE_URL` | `https://api.groq.com/openai/v1` | OpenAI-compatible endpoint |
+| `LLM_TIMEOUT_SECONDS` | `30.0` | LLM request timeout |
+| `LLM_MAX_RETRIES` | `3` | Retry attempts |
+| `LLM_TEMPERATURE` | `0.2` | Generation temperature |
+| `LLM_MAX_TOKENS` | `800` | Response token limit |
+| `ENTREZ_EMAIL` | none | NCBI Entrez email |
+| `ENTREZ_API_KEY` | none | Optional NCBI key |
+| `PUBMED_DATA_PATH` | `data/raw/pubmed.txt` | RAG corpus path |
+| `PUBMED_MAX_RESULTS` | `10` | PubMed articles per ingestion |
+| `EMBEDDING_MODEL` | `all-MiniLM-L6-v2` | Embedding model |
+| `RAG_CHUNK_SIZE` | `300` | RAG chunk size |
+| `RAG_CHUNK_OVERLAP` | `50` | RAG chunk overlap |
+| `RAG_RETRIEVAL_K` | `3` | Number of retrieved chunks |
+
+---
+
+## Repository Layout
+
+```text
+app/
+  Pharmaflow_dashboard.py
+  main.py
+  config/settings.py
+
+backend/
+  bootstrap.py
+  agents/
+    orchestrator/
+    ops_agent/
+    risk_agent/
+    auditor_agent/
+    report_agent/
+    shared/
+
+core/
+  llm.py
+  embeddings.py
+  vectorstore.py
+
+rag/
+  pipeline.py
+  indexing.py
+  chunking.py
+  retriever.py
+
+services/
+  query_service.py
+  action_service.py
+  ingestion_service.py
+
+data_sources/
+  pubmed_api.py
+  loaders.py
+
+tests/
+  test_inventory_alignment.py
 ```
 
 ---
 
 ## Security Notes
 
-- **Never commit `.env`** — it is excluded via `.gitignore`
-- The NCBI SSL bypass (`ssl._create_default_https_context`) has been removed. All HTTPS requests use Python's default SSL context with the `certifi` CA bundle
-- The `ENTREZ_EMAIL` must be an institutional address per NCBI Terms of Service
+- Do not commit `.env`.
+- Keep API keys out of notebooks, logs, and screenshots.
+- PubMed ingestion requires a valid institutional email for NCBI compliance.
+- LLM output is treated as explanatory text only; deterministic Python state remains the source of truth.
 
 ---
 
-## Sprint Status
+## Production Posture
 
-| Sprint | Feature | Status |
-|---|---|---|
-| Sprint 1 | Single-agent decision engine + RAG pipeline | ✅ Complete |
-| Sprint 2 | Multi-agent orchestrator (Ops/Risk/Audit/Report) | ✅ Complete |
-| Sprint 2 | Enterprise-grade audit hardening (23 findings resolved) | ✅ Complete |
+Pharma-Flow is designed so operational math, risk scoring, audit gating, dashboard badges, and final report text all derive from the same state object. If a hidden edge case appears, the intended failure mode is a blocked or paused workflow with explicit reasoning, not contradictory procurement instructions.

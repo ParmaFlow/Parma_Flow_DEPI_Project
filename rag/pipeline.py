@@ -69,7 +69,50 @@ class RAGPipeline:
         effective_k = k if k is not None else settings.rag_retrieval_k
         chunks = retrieve(query, self.store, self.embedder, k=effective_k)
         logger.debug("RAG retrieved %d chunks for query %r", len(chunks), query)
+
+        # Clean metadata noise before returning to caller
+        chunks = self._clean_chunks(chunks)
         return chunks
+
+    @staticmethod
+    def _clean_chunks(chunks: list[str]) -> list[str]:
+        """
+        Post-process retrieved text chunks to remove bibliographic metadata
+        (author affiliations, email addresses, PMID references, DOI strings)
+        that pollute the clinical context injected into agent prompts.
+
+        Keeps only lines that contain substantive clinical/pharmacological
+        information (≥ 30 characters, not purely bibliographic).
+        """
+        import re
+
+        # Patterns that indicate a line is pure metadata, not clinical text
+        _meta_patterns = [
+            re.compile(r"[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"),  # email
+            re.compile(r"\bPMID\b|\bDOI\b|\bdoi\.org\b", re.IGNORECASE),
+            re.compile(r"\bUniversity\b|\bFaculty\b|\bDepartment of\b|\bInstitute\b", re.IGNORECASE),
+            re.compile(r"^\s*\(\d+\)\s*"),           # numbered affiliation e.g. (1)
+            re.compile(r"Author information:"),
+            re.compile(r"Electronic address:"),
+            re.compile(r"^\s*\d{4}\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)"),  # date-only line
+        ]
+
+        cleaned = []
+        for chunk in chunks:
+            lines = chunk.splitlines()
+            good_lines = []
+            for line in lines:
+                stripped = line.strip()
+                if len(stripped) < 30:
+                    continue  # skip very short lines (usually metadata labels)
+                if any(p.search(stripped) for p in _meta_patterns):
+                    continue  # skip bibliographic noise
+                good_lines.append(stripped)
+            result = " ".join(good_lines).strip()
+            if len(result) >= 60:  # only include chunks with substantive content
+                cleaned.append(result)
+
+        return cleaned
 
     def get_context_text(self, query: str, k: int | None = None) -> str:
         """

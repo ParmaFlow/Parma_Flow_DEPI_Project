@@ -9,6 +9,7 @@ from enum import Enum
 REORDER_ROUNDING = 10
 DEFAULT_WAREHOUSE_ASSIGNEE = "Warehouse Ops"
 DEFAULT_HOSPITAL_ASSIGNEE = "Pharmacy Manager"
+BASELINE_DEMAND_FLOOR = 1
 
 # Heuristics used when historical demand/lead-time distributions are
 # unavailable. These provide a deterministic, documented fallback instead
@@ -68,7 +69,8 @@ MAX_RISK_SCORE = 100
 
 # --- Auditor Agent constants -------------------------------------------------
 
-VALID_ACTIONS = {"REORDER", "MONITOR"}
+VALID_ACTIONS = {"REORDER", "MONITOR", "HOLD_MONITOR"}
+REPORT_ONLY_ACTIONS = {"URGENT_DISPOSAL_AND_REPLACEMENT"}
 VALID_RISK_LEVELS = {"LOW", "MEDIUM", "HIGH", "CRITICAL"}
 VALID_CRITICALITY_LEVELS = {"CRITICAL", "STANDARD"}
 
@@ -102,6 +104,8 @@ class ExecutionStatus(str, Enum):
 class ActionType(str, Enum):
     REORDER = "REORDER"
     MONITOR = "MONITOR"
+    HOLD_MONITOR = "HOLD_MONITOR"
+    URGENT_DISPOSAL_AND_REPLACEMENT = "URGENT_DISPOSAL_AND_REPLACEMENT"
     REDISTRIBUTE = "REDISTRIBUTE"
     HUMAN_REVIEW = "HUMAN_REVIEW"
     AUDIT = "AUDIT"

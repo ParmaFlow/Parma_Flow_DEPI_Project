@@ -17,7 +17,8 @@ class OperationalDecision:
         sku: Name/identifier of the SKU analyzed.
         action: "REORDER" or "MONITOR".
         needs_reorder: Whether the item requires reordering.
-        inventory_gap: forecast_demand - available_stock.
+        inventory_gap: Non-negative shortage amount:
+            max(reorder_point, forecast_demand) - available_stock, clamped at 0.
         recommended_qty: Units to reorder, rounded up per business rules.
         safety_stock: Deterministically estimated safety stock buffer.
         reorder_point: Stock level at which reordering should trigger

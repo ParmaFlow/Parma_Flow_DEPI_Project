@@ -72,15 +72,16 @@ class WorkflowMapper:
     def _map_rejected(state: WorkflowState) -> LegacyDecisionResponse:
         ops = state.operational_result
         audit = state.audit_result
+        report = state.report_result
 
         return LegacyDecisionResponse(
             sku_name=ops.sku if ops else state.original_input.get("sku_name"),
-            action=ActionType.HUMAN_REVIEW.value,
+            action=(report.recommended_action if report else ActionType.HUMAN_REVIEW.value),
             recommended_qty=ops.recommended_qty if ops else 0,
             assignee=ops.assignee if ops else "Pharmacy Manager",
-            reasoning=(audit.reasoning if audit else "")
+            reasoning=(report.reasoning if report else (audit.reasoning if audit else ""))
             or "Audit rejected this decision.",
-            recommendation="Autonomous execution blocked pending manual review.",
+            recommendation=(report.executive_summary if report else "Autonomous execution blocked pending manual review."),
             audit_status=audit.audit_status if audit else ExecutionStatus.REJECTED.value,
             failed_rules=audit.failed_rules if audit else [],
         )

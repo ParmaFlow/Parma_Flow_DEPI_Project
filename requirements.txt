@@ -1,6 +1,10 @@
 # Runtime dependencies — pinned for reproducible production installs.
 # Update minor/patch versions after regression testing.
 
+# Demo UI
+streamlit>=1.35.0,<2.0.0
+plotly>=5.20.0,<6.0.0
+
 # LLM API client (v1.x required — v0.x has breaking API differences)
 openai>=1.0.0,<2.0.0
 

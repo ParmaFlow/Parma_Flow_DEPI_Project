@@ -85,3 +85,13 @@ HARD CONSTRAINTS
 ✗ Every string value must be a single, properly escaped JSON string.
 ✗ Output must parse cleanly with json.loads() — test it mentally.
 """
+
+GROUND_TRUTH_INVENTORY_RULES = """
+Inventory gap sign rules:
+- inventory_gap is a non-negative shortage amount, never an overstock amount.
+- If inventory_gap > 0, describe shortage or stockout risk only; action must be REORDER and recommended_qty must be positive.
+- If inventory_gap == 0, describe adequate stock or monitoring only; action must be MONITOR and recommended_qty must be 0.
+- Never use the words overstocked, surplus, or excess when inventory_gap is positive.
+"""
+
+OPS_AGENT_PROMPT = GROUND_TRUTH_INVENTORY_RULES + OPS_AGENT_PROMPT

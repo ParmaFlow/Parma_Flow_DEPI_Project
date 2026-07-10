@@ -1,5 +1,6 @@
 # backend/agents/risk_agent/risk_agent.py
 import json
+import logging
 
 from core.llm import LLMModel
 from backend.agents.risk_agent.prompt import RISK_AGENT_PROMPT
@@ -23,8 +24,11 @@ from backend.agents.shared.constants import (
     CRITICAL_DRUG_CATEGORIES,
     MIN_RISK_SCORE,
     MAX_RISK_SCORE,
+    ActionType,
 )
 from backend.agents.shared.exceptions import LLMResponseParsingError
+
+logger = logging.getLogger(__name__)
 
 
 class RiskAgent(BaseAgent):
@@ -53,7 +57,7 @@ class RiskAgent(BaseAgent):
             RiskAssessment: deterministic score/level plus LLM explanation.
         """
         confidence_width = self._calculate_confidence_width(item_data)
-        shortage_risk = self._calculate_shortage_risk(ops_decision)
+        shortage_risk = self._calculate_shortage_risk(ops_decision, item_data)
         expiry_risk = self._calculate_expiry_risk(item_data)
         criticality = self._calculate_criticality(item_data)
         low_stock = self._is_low_stock(item_data)
@@ -109,7 +113,12 @@ class RiskAgent(BaseAgent):
             return None
         return confidence_high - confidence_low
 
-    def _calculate_shortage_risk(self, ops_decision: OperationalDecision) -> bool:
+    def _calculate_shortage_risk(self, ops_decision: OperationalDecision, item_data: dict) -> bool:
+        if (item_data.get("forecast_demand", 0) or 0) <= 0 and (item_data.get("available_stock", 0) or 0) > 0:
+            logger.warning("Zero demand input detected; inventory tracking paused.")
+            return False
+        if ops_decision.action == ActionType.HOLD_MONITOR.value:
+            return False
         return bool(ops_decision.needs_reorder and ops_decision.inventory_gap > 0)
 
     def _calculate_expiry_risk(self, item_data: dict) -> bool:
@@ -221,6 +230,39 @@ class RiskAgent(BaseAgent):
     # LLM used strictly for explanation text generation
     # ------------------------------------------------------------------
     def _create_risk_summary(self, ops_decision: OperationalDecision, item_data: dict, **computed) -> dict:
+        zero_demand_paused = (
+            (item_data.get("forecast_demand", 0) or 0) <= 0
+            and (item_data.get("available_stock", 0) or 0) > 0
+        )
+        factors = []
+        for key in ("shortage_risk", "expiry_risk", "low_stock", "long_lead_time"):
+            if computed.get(key):
+                factors.append(key)
+        if computed.get("criticality") == "CRITICAL":
+            factors.append("criticality")
+        factor_text = ", ".join(factors) if factors else "no active deterministic risk multipliers"
+        if zero_demand_paused:
+            return {
+                "reasoning": (
+                    "Zero demand input detected; inventory tracking paused. "
+                    f"The composite risk score is {computed['risk_score']}/100 with "
+                    f"risk_level={computed['risk_level']}, and shortage_risk=False because "
+                    "no active demand is present. Autonomous shortage escalation is suppressed "
+                    "until a positive forecast demand is restored."
+                )
+            }
+        return {
+            "reasoning": (
+                f"The composite risk score is {computed['risk_score']}/100 with "
+                f"risk_level={computed['risk_level']}. Active factors: {factor_text}. "
+                f"shortage_risk={computed['shortage_risk']}, expiry_risk={computed['expiry_risk']}, "
+                f"criticality={computed['criticality']}, and human_review_recommended="
+                f"{computed['human_review_recommended']}. The risk posture follows the "
+                "deterministic OpsAgent state and does not alter reorder quantities."
+            )
+        }
+
+    def _create_llm_risk_summary(self, ops_decision: OperationalDecision, item_data: dict, **computed) -> dict:
         llm_input = {
             "sku_name": ops_decision.sku,
             "location_type": item_data.get("location_type"),

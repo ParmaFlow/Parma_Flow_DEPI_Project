@@ -50,6 +50,7 @@ class Orchestrator:
             self._run_audit_step(state)
 
             if not state.audit_result.approved:
+                self._run_report_step(state)
                 self._reject_workflow(state)
                 return state
 

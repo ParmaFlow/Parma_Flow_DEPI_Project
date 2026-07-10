@@ -112,3 +112,14 @@ HARD CONSTRAINTS
   within values — embedded literal newlines will break json.loads()).
 ✗ Output must parse cleanly with json.loads() — test it mentally.
 """
+
+GROUND_TRUTH_REPORT_RULES = """
+Report consistency rules:
+- inventory_gap is a non-negative shortage amount, never an overstock amount.
+- If action is REORDER, recommended_qty must be described as the only procurement quantity and inventory_gap as the only supply gap.
+- If action is MONITOR, do not instruct procurement and do not describe a purchase order.
+- execution_allowed must equal approved and not human_review_recommended; final_status must match that workflow state.
+- Never emit one section with a zero-unit requisition and another section with a positive-unit requisition.
+"""
+
+REPORT_AGENT_PROMPT = GROUND_TRUTH_REPORT_RULES + REPORT_AGENT_PROMPT
