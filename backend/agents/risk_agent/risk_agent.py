@@ -230,37 +230,7 @@ class RiskAgent(BaseAgent):
     # LLM used strictly for explanation text generation
     # ------------------------------------------------------------------
     def _create_risk_summary(self, ops_decision: OperationalDecision, item_data: dict, **computed) -> dict:
-        zero_demand_paused = (
-            (item_data.get("forecast_demand", 0) or 0) <= 0
-            and (item_data.get("available_stock", 0) or 0) > 0
-        )
-        factors = []
-        for key in ("shortage_risk", "expiry_risk", "low_stock", "long_lead_time"):
-            if computed.get(key):
-                factors.append(key)
-        if computed.get("criticality") == "CRITICAL":
-            factors.append("criticality")
-        factor_text = ", ".join(factors) if factors else "no active deterministic risk multipliers"
-        if zero_demand_paused:
-            return {
-                "reasoning": (
-                    "Zero demand input detected; inventory tracking paused. "
-                    f"The composite risk score is {computed['risk_score']}/100 with "
-                    f"risk_level={computed['risk_level']}, and shortage_risk=False because "
-                    "no active demand is present. Autonomous shortage escalation is suppressed "
-                    "until a positive forecast demand is restored."
-                )
-            }
-        return {
-            "reasoning": (
-                f"The composite risk score is {computed['risk_score']}/100 with "
-                f"risk_level={computed['risk_level']}. Active factors: {factor_text}. "
-                f"shortage_risk={computed['shortage_risk']}, expiry_risk={computed['expiry_risk']}, "
-                f"criticality={computed['criticality']}, and human_review_recommended="
-                f"{computed['human_review_recommended']}. The risk posture follows the "
-                "deterministic OpsAgent state and does not alter reorder quantities."
-            )
-        }
+        return self._create_llm_risk_summary(ops_decision, item_data, **computed)
 
     def _create_llm_risk_summary(self, ops_decision: OperationalDecision, item_data: dict, **computed) -> dict:
         llm_input = {

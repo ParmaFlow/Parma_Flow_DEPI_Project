@@ -145,9 +145,9 @@ class OpsAgent(BaseAgent):
         forecast_demand = self._get_effective_forecast_demand(item_data)
         lead_time = item_data.get("lead_time", 0) or 0
 
-        avg_daily_demand = item_data.get("avg_daily_demand", forecast_demand)
+        avg_daily_demand = item_data.get("avg_daily_demand", forecast_demand / 30.0)
         max_daily_demand = item_data.get(
-            "max_daily_demand", forecast_demand * SAFETY_STOCK_MAX_DEMAND_MULTIPLIER
+            "max_daily_demand", (forecast_demand / 30.0) * SAFETY_STOCK_MAX_DEMAND_MULTIPLIER
         )
         avg_lead_time = item_data.get("avg_lead_time", lead_time)
         max_lead_time = item_data.get(
@@ -172,7 +172,7 @@ class OpsAgent(BaseAgent):
         """
         forecast_demand = self._get_effective_forecast_demand(item_data)
         lead_time = item_data.get("lead_time", 0) or 0
-        forecast_during_lead_time = forecast_demand * lead_time if lead_time else forecast_demand
+        forecast_during_lead_time = (forecast_demand / 30.0) * lead_time if lead_time else forecast_demand
         return int(round(forecast_during_lead_time + safety_stock))
 
     def _determine_inventory_status(self, item_data: dict, reorder_point: int) -> str:
@@ -232,7 +232,7 @@ class OpsAgent(BaseAgent):
         Raises:
             LLMResponseParsingError: if the LLM response is not valid JSON.
         """
-        return self._build_grounded_operational_summary(item_data, **computed)
+        return self._create_llm_operational_summary(item_data, **computed)
 
     def _build_grounded_operational_summary(self, item_data: dict, **computed) -> dict:
         sku_name = item_data.get("sku_name", "Unknown SKU")

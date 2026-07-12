@@ -5,6 +5,10 @@
 streamlit>=1.35.0,<2.0.0
 plotly>=5.20.0,<6.0.0
 
+# REST API
+fastapi>=0.111.0,<1.0.0
+uvicorn[standard]>=0.30.0,<1.0.0
+
 # LLM API client (v1.x required — v0.x has breaking API differences)
 openai>=1.0.0,<2.0.0
 

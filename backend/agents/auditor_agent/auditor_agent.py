@@ -415,16 +415,7 @@ class AuditorAgent(BaseAgent):
     # LLM used strictly for explanation text generation
     # ------------------------------------------------------------------
     def _generate_audit_summary(self, ops_decision, risk_assessment, approved, audit_status, rule_results) -> dict:
-        if any(r.rule_name == "EXPIRY_DOMINANCE_OVERRIDE" for r in rule_results):
-            audit_status = "FAILED_AUDIT"
-        failed = ", ".join(r.rule_name for r in rule_results) if rule_results else "No rule violations detected"
-        return {
-            "reasoning": (
-                f"Audit status is {audit_status}; approved={approved}. Failed rules: {failed}. "
-                "Expiry dominance blocks autonomous execution whenever shelf life is below supplier "
-                "lead time or the 30-day clinical threshold."
-            )
-        }
+        return self._generate_llm_audit_summary(ops_decision, risk_assessment, approved, audit_status, rule_results)
 
     def _generate_llm_audit_summary(self, ops_decision, risk_assessment, approved, audit_status, rule_results) -> dict:
         llm_input = {

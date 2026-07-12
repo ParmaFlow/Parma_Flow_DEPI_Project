@@ -97,8 +97,7 @@ class ReportAgent(BaseAgent):
         )
 
     def _create_executive_summary(self, merged: dict, final_status: str) -> dict:
-        execution_allowed = merged["approved"] and not merged["human_review_recommended"]
-        return self._build_grounded_executive_summary(merged, final_status, execution_allowed)
+        return self._create_llm_executive_summary(merged, final_status)
 
     def _build_grounded_executive_summary(
         self, merged: dict, final_status: str, execution_allowed: bool
