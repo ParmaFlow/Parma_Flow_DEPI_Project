@@ -1,14 +1,15 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/activity.svg" alt="Pharma-Flow Logo" width="120" height="120">
 
-  # 💊 Pharma-Flow: AI-Powered Pharmacy Intelligence
+  # 💊 Pharma-Flow: AI-Powered Pharmacy Intelligence & Multi-Agent Ecosystem
 
-  **Next-Generation Inventory Management, Predictive Analytics, and AI RAG Chatbot**
+  **DEPI Project Showcase: Advanced Data Science, LangChain Multi-Agents, RAG, and Modern Web Dashboard**
 
+  [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org/)
+  [![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+  [![LangChain](https://img.shields.io/badge/LangChain-121212?style=for-the-badge)](https://langchain.com/)
   [![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
   [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-  [![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
-  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
   [![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 
   ---
@@ -16,61 +17,65 @@
 
 ## 🚀 Overview
 
-**Pharma-Flow** is an enterprise-grade web application built to revolutionize pharmaceutical inventory management. By combining modern web technologies with Artificial Intelligence (AI) and Machine Learning (ML) workflows, Pharma-Flow empowers pharmacists and executives to make data-driven decisions seamlessly.
+**Pharma-Flow** is a comprehensive, enterprise-grade AI solution designed to revolutionize pharmaceutical supply chain and inventory management. Developed as part of the **DEPI Project**, this application bridges the gap between raw data science and actionable operational intelligence.
 
-Say goodbye to stockouts, expired medications, and manual demand forecasting. Let AI handle the heavy lifting.
+Instead of just predicting numbers, Pharma-Flow utilizes a **Multi-Agent AI Architecture** that reasons about stock levels, evaluates risks, audits compliance, and talks to users via an intelligent RAG-powered chatbot—all wrapped in a sleek, real-time React dashboard.
 
 ---
 
-## ✨ Features
+## 🧠 Core Ecosystem & Data Science
 
-### 1. 🔮 AI-Powered Inventory Simulator
-- **Dynamic Forecasting:** Run "what-if" scenarios instantly. Adjust metrics like stock levels, lead times, and expiry days.
-- **Automated Workflows:** Trigger a comprehensive backend AI pipeline that performs risk analysis, compliance auditing, and generates actionable supply chain reports.
+### 1. Data Science & Machine Learning (`/notebooks`)
+- **Extensive EDA & Data Cleaning:** Deep exploratory data analysis on raw pharmaceutical datasets (`PHARMA_Flow_Sprint_1_.ipynb`) to identify trends, seasonality, and missing anomalies.
+- **Demand Forecasting:** Implementation of ML models to predict future drug demand (`forecast_demand`), optimizing safety stock and reorder points based on historical consumption patterns.
 
-### 2. 📊 Real-Time Analytics Dashboard
-- **Executive Summaries:** Instantly view Total Stock Items, Items at Risk, and Total Demand Forecast.
-- **Interactive Visualizations:** Powered by `Recharts`, providing 6-Month Demand Forecasts (Line Charts) and Stock Distribution (Pie Charts).
-- **One-Click Export:** Export your entire inventory dataset to CSV for offline analysis and record-keeping.
+### 2. Multi-Agent AI System (`/backend/agents`)
+Our intelligence layer is orchestrated by a team of specialized AI Agents powered by Groq LLMs:
+- 👑 **Orchestrator Agent:** The brain that coordinates tasks, passing state between specialized agents.
+- 📦 **Ops Agent (Operations):** Analyzes logistics, current stock, lead times, and recommends immediate supply chain actions.
+- ⚠️ **Risk Agent:** Identifies vulnerabilities (e.g., stockouts, imminent expiry, overstocking) and assigns risk scores.
+- 🛡️ **Auditor Agent:** Ensures regulatory compliance, checks financial constraints, and validates ops decisions against medical guidelines.
+- 📝 **Report Agent:** Synthesizes the multi-agent debate into a concise, actionable JSON report for the frontend.
 
-### 3. 🤖 Floating RAG AI Assistant
-- **Context-Aware Responses:** A built-in Retrieval-Augmented Generation (RAG) chatbot that "sees" your current inventory.
-- **LLM Powered:** Uses the Groq LLM (LLaMA/Mixtral) to give intelligent answers.
-- **Human-like Interaction:** Beautiful UI with typing indicators and natural conversational flow.
+### 3. RAG-Powered AI Chatbot (`/rag`)
+- **Context-Aware Assistant:** Not just a generic chatbot. It retrieves live Medical knowledge and your **Current Inventory Context** using Vector Search (FAISS) and LLMs.
+- **Interactive:** Ask it *"Which medications are at risk of expiring?"* or *"What is the medical implication of a Paracetamol shortage?"* and get instant, grounded answers.
+
+---
+
+## 💻 Interactive Dashboard (MVP Presentation Layer)
+
+The data science and AI models are exposed through a beautifully crafted, responsive dashboard built with **React, Vite, and TailwindCSS**.
+
+- **Inventory Simulator:** A "what-if" testing ground. Adjust `available_stock`, `lead_time`, or `expiry_days` and hit **Run AI Analysis** to trigger the Multi-Agent workflow in real-time.
+- **Analytics Dashboard:** Powered by `Recharts`, providing live metrics (Total Stock, Items at Risk, Demand Forecasts) and data visualizations.
+- **Floating AI Assistant:** A seamless, typing-effect chat widget integrated directly into the UI.
+- **One-Click Export:** Export your inventory insights to CSV for offline reporting.
 
 ---
 
 ## 🛠️ Technology Stack
 
-### Backend
-- **Framework:** FastAPI (Python 3.10)
-- **AI Integration:** Groq LLM API, LangChain/LlamaIndex concepts
-- **Architecture:** Modular routes, Pydantic schemas, Dependency Injection
-
-### Frontend
-- **Framework:** React 18 + Vite
-- **Styling:** Tailwind CSS + custom glassmorphism and animations
-- **Icons & Charts:** Lucide React, Recharts
-
-### Deployment
-- **Containerization:** Docker & Docker Compose
-- **Proxy/Web Server:** Nginx (Alpine)
+- **Data Science:** Python, Pandas, NumPy, Scikit-Learn, Jupyter
+- **AI & Agents:** LangChain, Groq API (LLaMA/Mixtral), FAISS (Vector DB)
+- **Backend:** FastAPI, Uvicorn, Pydantic
+- **Frontend:** React 18, Vite, Tailwind CSS, Lucide Icons, Recharts
+- **Infrastructure:** Docker, Docker Compose, Nginx
 
 ---
 
 ## 🐳 Quick Start (Docker - Recommended)
 
-The easiest way to get Pharma-Flow up and running is using Docker.
+Experience the entire ecosystem (Frontend, FastAPI, and Multi-Agents) with a single command.
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/Pharma-Flow.git
-   cd Pharma-Flow
+   git clone https://github.com/ParmaFlow/Parma_Flow_DEPI_Project.git
+   cd Parma_Flow_DEPI_Project
    ```
 
 2. **Configure Environment Variables:**
-   - Rename `.env.example` to `.env` (or create one).
-   - Add your `GROQ_API_KEY`.
+   - Add your `GROQ_API_KEY` to the `.env` file to empower the LLM agents.
 
 3. **Spin up the containers:**
    ```bash
@@ -78,42 +83,31 @@ The easiest way to get Pharma-Flow up and running is using Docker.
    ```
 
 4. **Access the Application:**
-   - **Frontend:** http://localhost:80
+   - **Frontend Dashboard:** http://localhost:80
    - **Backend API Docs:** http://localhost:8000/docs
 
 ---
 
-## 💻 Local Development Setup
+## 🏗️ Local Development Setup
 
-If you prefer to run the application locally without Docker:
-
-### Backend
+### Backend & AI Services
 ```bash
 cd backend
 python -m venv venv
-source venv/bin/activate  # (or venv\Scripts\activate on Windows)
+source venv/bin/activate  # (Windows: venv\Scripts\activate)
 pip install -r ../requirements.txt
 uvicorn backend.api.main:app --reload
 ```
-*Backend runs on http://localhost:8000*
 
-### Frontend
+### Frontend UI
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-*Frontend runs on http://localhost:5173 with a local proxy to the backend API.*
-
----
-
-## 🎨 UI / UX Highlights
-- **Clean Design:** A sophisticated "clinical" color palette focusing on clarity and reduced cognitive load.
-- **Micro-interactions:** Hover effects, smooth transitions, and typing indicators make the app feel alive.
-- **Fully Responsive:** Beautifully crafted layouts that adapt to your screen.
 
 ---
 
 <div align="center">
-  <i>Built with ❤️ for the DEPI Project. Ready to disrupt the Pharma Supply Chain!</i>
+  <i>Built with ❤️ for the DEPI Project. Bringing Data Science and AI to the Pharmacy Supply Chain!</i>
 </div>
